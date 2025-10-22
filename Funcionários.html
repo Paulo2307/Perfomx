@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Perfomx</title>
+</head>
+<body>
+    
+    <header>
+        <img id="logo" src="Assets/Screenshot_8-removebg-preview.png" alt="Logo-perfomx">
+
+        <ul class="menu-nav">
+            <a href="Index.html">Dashboard</a>
+            <a href="Funcionários.html" style="color: #fff;">Funcionários</a>
+            <a href="Metas.html">Metas</a>
+            <a href="Avaliações.html">Avaliações</a>
+            <a href="Feedbacks.html">Feedbacks</a>
+        </ul>
+    </header>
+
+    <main class="main">
+
+        <div class="title">
+            <h1>Funcionários</h1>
+        </div>
+        
+        <div class="card-Funcionarios">
+
+            <h2 id="sub-tittle">Cadastar funcionário</h2>
+
+            <form class="formFuncionarios">
+                <label class="inputDescription" for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome completo..." required>
+
+                <label class="inputDescription" for="cargo">Cargo</label>
+                <input type="text" id="cargo" name="cargo" placeholder="Cargo atual..." required>
+
+                <label class="inputDescription" for="email">Setor</label>
+                <input type="text" id="setor" name="setor" placeholder="Setor atual..." required>
+
+                <button id="btn-Cadastro" type="submit">
+                    <h3>Cadastrar</h3>
+                </button>
+            </form>
+
+            <div class="lineDivision"></div>
+
+            <div class="tableDados">
+                <table class="table">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cargo</th>
+                        <th>Setor</th>
+                    </tr>
+                    <tr>
+                        <td>João Silva</td>
+                        <td>Analista de Marketing</td>
+                        <td>Marketing</td>
+                    </tr>
+                    <tr>
+                        <td>Maria Oliveira</td>
+                        <td>Desenvolvedora Front-end</td>
+                        <td>Tecnologia</td>
+                    </tr>
+                    <tr>
+                        <td>Carlos Souza</td>
+                        <td>Gerente de Vendas</td>
+                        <td>Vendas</td>
+                    </tr>
+                </table>
+            </div>
+        </div> 
+
+    </main>
+</body>
+</html>
