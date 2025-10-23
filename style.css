@@ -280,7 +280,7 @@ header{
 
 /*FUNCIONÁRIOS*/
 
-.card-Funcionarios{
+.MainCard{
     display: flex;
     padding: 10px 24px;
     flex-direction: column;
@@ -289,7 +289,7 @@ header{
     flex: 1 0 0;
     align-self: stretch;
 
-    border-radius: 12px 12px 0 0;
+    border-radius: 12px;
     border: 1px solid rgba(0, 0, 0, 0.63);
     background: #FFF;
     box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -321,7 +321,7 @@ header{
     line-height: normal;
 }
 
-#nome, #cargo, #setor{
+.formFuncionarios input{
     display: flex;
     height: 52px;
     max-height: 55px;
@@ -338,7 +338,7 @@ header{
     border: 1px solid var(--Colors-buttons, #909090);
 }
 
-#btn-Cadastro{
+#btn-Cadastro, #btn-Adicionar{
     display: flex;
     padding: 20px;
     flex-direction: column;
@@ -356,7 +356,11 @@ header{
     background-color: #0e5c11;
 }
 
-#btn-Cadastro h3{
+#btn-Adicionar:hover{
+    background-color: #0e5c11;
+}
+
+#btn-Cadastro, #btn-Adicionar h3{
     color: #FFF;
     font-family: Inter;
     font-size: 20px;
@@ -375,17 +379,19 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 73px;
     align-self: stretch;
     opacity: 0.77;
+    flex-direction: column;
+    gap: 28px;
 }
 
 .table{
     display: flex;
-justify-content: center;
-align-items: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
 }
-
 
 th{
     color: #000;
@@ -409,5 +415,149 @@ td{
     line-height: normal;
     padding: 16px 18px;
     border-bottom: 1px solid #000;
+    width: 600px;
     
+}
+
+/*METAS*/
+
+.inputRow{
+    display: flex;
+    gap:20px;
+    width: 100%;
+}
+
+.inputRow div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    flex: 1;
+}
+
+.formMetas{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    align-self: stretch;
+}
+
+.formMetas input{
+    display: flex;
+    height: 52px;
+    max-height: 55px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    padding: 10px 16px;
+    font-size: 20px;
+    color: #5a5a5a;
+
+    border-radius: 8px;
+    border: 1px solid var(--Colors-buttons, #909090);
+}
+
+.icon-calendar{
+    background-image: url('/Assets/calendar_month_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.icon-chevron{
+    background-image: url(Assets/keyboard_arrow_down_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png);
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/*AVALIAÇÕES*/
+.formAvaliações{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    align-self: stretch;
+}
+
+.formAvaliações input{
+    display: flex;
+    height: 52px;
+    max-height: 55px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    padding: 10px 16px;
+    font-size: 20px;
+    color: #5a5a5a;
+
+    border-radius: 8px;
+    border: 1px solid var(--Colors-buttons, #909090);
+}
+
+/*FEEDBAKCS*/
+
+.formFeedbacks{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    align-self: stretch;
+}
+
+.formFeedbacks #funcionário{
+    display: flex;
+    height: 52px;
+    max-height: 55px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    padding: 10px 16px;
+    font-size: 20px;
+    color: #5a5a5a;
+
+    border-radius: 8px;
+    border: 1px solid var(--Colors-buttons, #909090);
+}
+
+.formFeedbacks #comentário{
+    display: flex;
+    height: 120px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    padding: 10px 16px;
+    font-size: 20px;
+    color: #5a5a5a;
+
+    border-radius: 8px;
+    border: 1px solid var(--Colors-buttons, #909090);
+}
+
+.input-comentario{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 18px;
+}
+
+.tableDados h1{
+    color: #000;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    padding-left: 10px;
 }
