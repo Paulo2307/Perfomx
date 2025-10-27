@@ -1,88 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/svg+xml" href="Assets/favicon-32x32.png">
-    <title>Perfomx</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="Assets/favicon-32x32.png">
+  <title>Perfomx</title>
+
+  <!-- Flatpickr (para escolher datas) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
+  <header>
+    <img id="logo" src="Assets/Screenshot_8-removebg-preview.png" alt="Logo-perfomx">
+
+    <ul class="menu-nav">
+      <a href="Index.html">Dashboard</a>
+      <a href="Funcionários.html">Funcionários</a>
+      <a href="Metas.html">Metas</a>
+      <a href="Avaliações.html" style="color: #fff;">Avaliações</a>
+    </ul>
+  </header>
+
+  <main class="main">
+    <div class="title">
+      <h1>Avaliações de Performance</h1>
+    </div>
+
+    <div class="MainCard">
+      <h2 id="sub-tittle">Registrar Avaliação</h2>
+
+                                <!-- Adicionar tom select no input de funcionarios linkando com a pagina de funcionarios para que não seja necessaario digitar o nome do funcionário-->
+                                <!-- Fazer com que quando o input do nome do funcionáro seja selecionado os dados do input de meta seja preenchido automaticamente-->
+                                <!-- Ajustar o input de notas para que exiba uma mensagem de erro caso o valor seja inválido-->
+                                <!-- Ajustar e estilizar o input de feedbacks (comentários)-->
     
-    <header>
-        <img id="logo" src="Assets/Screenshot_8-removebg-preview.png" alt="Logo-perfomx">
 
-        <ul class="menu-nav">
-            <a href="Index.html">Dashboard</a>
-            <a href="Funcionários.html">Funcionários</a>
-            <a href="Metas.html">Metas</a>
-            <a href="Avaliações.html" style="color: #fff;">Avaliações</a>
-            <a href="Feedbacks.html">Feedbacks</a>
-        </ul>
-    </header>
+      <form class="formAvaliacoes">
 
-     <main class="main">
+        <label class="inputDescription" for="funcionario">Funcionário</label>
+        <input list="lista-funcionarios" id="funcionario" name="funcionario" placeholder="Selecione ou digite o nome..." required>
+        <datalist id="lista-funcionarios"></datalist>
 
-        <div class="title">
-            <h1>Avaliações</h1>
-        </div>
-        
-        <div class="MainCard">
+        <label class="inputDescription" for="meta">Meta Avaliada</label>
+        <input type="text" id="meta" name="meta" placeholder="Descreva a meta..." required>
 
-            <form class="formAvaliações">
+        <label class="inputDescription" for="nota">Nota (0 a 10)</label>
+        <input type="number" id="nota" name="nota" min="0" max="10" required>
 
-                <label class="inputDescription" for="Funcionário">Funcionário</label>
-                <input class="icon-chevron" type="text" id="funcionário" name="funcionário" placeholder="Nome do funcionário..." required>
-                
-                <div class="inputRow">
+        <label class="inputDescription" for="feedback">Comentário</label>
+        <textarea id="feedback" name="feedback" placeholder="Escreva um breve feedback..." required></textarea>
 
-                    <div>
-                        <label class="inputDescription" for="Data">Data</label>
-                        <input class="icon-calendar" type="text" id="data" name="data" placeholder="Defina uma data" required>
-                    </div>
-                    
-                    <div>
-                        <label class="inputDescription" for="Notas">Notas</label>
-                        <input class="icon-chevron" type="text" id="notas" name="notas" placeholder="Defina uma nota" required>
-                    </div>
+        <label class="inputDescription" for="data">Data da Avaliação</label>
+        <input type="text" id="data" name="data" placeholder="Selecione a data..." required>
 
-                </div>
+        <button id="btn-Cadastro" type="submit">
+          <h3>Salvar Avaliação</h3>
+        </button>
+      </form>
 
+      <div class="lineDivision"></div>
 
-                <button id="btn-Adicionar" type="submit">
-                    <h3>Adicionar</h3>
-                </button>
+      <div class="tableDados">
+        <table id="table">
+          <thead>
+            <tr>
+              <th>Funcionário</th>
+              <th>Meta</th>
+              <th>Nota</th>
+              <th>Feedback</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
 
-            </form>
-
-            <div class="lineDivision"></div>
-
-            <div class="tableDados">
-                <table class="table">
-                    <tr>
-                        <th>Funcionário</th>
-                        <th>Data</th>
-                        <th>Nota</th>
-                    </tr>
-                    <tr>
-                        <td>João Silva</td>
-                        <td>24/09</td>
-                        <td>5.0</td>
-                    </tr>
-                    <tr>
-                        <td>Maria Oliveira</td>
-                        <td>06/08</td>
-                        <td>3.5</td>
-                    </tr>
-                    <tr>
-                        <td>Carlos Souza</td>
-                        <td>31/11</td>
-                        <td>4.0</td>
-                    </tr>
-                </table>
-            </div>
-        </div> 
-
-    </main>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="avaliacoes.js"></script>
 </body>
 </html>

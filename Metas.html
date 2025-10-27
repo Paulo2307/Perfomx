@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="Assets/favicon-32x32.png">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
     <title>Perfomx</title>
 </head>
 <body>
@@ -17,7 +19,6 @@
             <a href="Funcionários.html">Funcionários</a>
             <a href="Metas.html" style="color: #fff" >Metas</a>
             <a href="Avaliações.html">Avaliações</a>
-            <a href="Feedbacks.html">Feedbacks</a>
         </ul>
     </header>
 
@@ -31,9 +32,12 @@
 
             <h2 id="sub-tittle">Adicionar meta</h2>
 
+                                <!-- Adicionar tom select no input de funcionarios linkando com a pagina de funcionarios para que não seja necessaario digitar o nome do funcionário-->
+
             <form class="formMetas">
                 <label class="inputDescription" for="Funcionário">Funcionário</label>
-                <input class="icon-chevron" type="text" id="funcionário" name="funcionário" placeholder="Nome do funcionário..." required>
+                <input list="lista-funcionarios" id="funcionário" name="funcionário" placeholder="Nome do funcionário..." required>
+                <datalist id="lista-funcionarios"></datalist>
                 
                 <div class="inputRow">
 
@@ -57,31 +61,24 @@
             <div class="lineDivision"></div>
 
             <div class="tableDados">
-                <table class="table">
+                <table id="table">
+                    <thead>
                     <tr>
                         <th>Funcionário</th>
                         <th>Meta</th>
                         <th>Prazo</th>
                     </tr>
-                    <tr>
-                        <td>João Silva</td>
-                        <td>Aumentar clientes</td>
-                        <td>23/09</td>
-                    </tr>
-                    <tr>
-                        <td>Maria Oliveira</td>
-                        <td>Terminar Front-end</td>
-                        <td>05/08</td>
-                    </tr>
-                    <tr>
-                        <td>Carlos Souza</td>
-                        <td>Aumentar as Vendas</td>
-                        <td>30/11</td>
-                    </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
                 </table>
             </div>
         </div> 
 
     </main>
+    <script src="metas.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 </html>
