@@ -1,15 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".formAvaliacoes");
   const tabela = document.querySelector("#table tbody");
-  const datalist = document.querySelector("#lista-funcionarios");
+  const formselect = document.querySelector("#lista-funcionarios");
+  const placeholder = document.createElement("option");
+  const inputFuncionario = document.querySelector("#lista-funcionarios");
+  const inputMeta = document.querySelector("#meta");
 
-  // Carrega funcionários para a datalist
+  // Carrega funcionários para o select
+
   const funcionarios = JSON.parse(localStorage.getItem("funcionarios")) || [];
-  datalist.innerHTML = "";
+  const metas = JSON.parse(localStorage.getItem("metas")) || [];
+
+  inputFuncionario.addEventListener("input", () => {
+    const nomeSelecionado = inputFuncionario.value.trim();
+  
+    // Procura a meta do funcionário selecionado
+    const metaEncontrada = metas.find(
+      m => m.funcionario.toLowerCase() === nomeSelecionado.toLowerCase()
+    );
+
+    if (metaEncontrada) {
+      inputMeta.value = metaEncontrada.meta;
+    } else {
+      inputMeta.value = "";
+    }
+  });
+
+  formselect.innerHTML = "";
+
+  placeholder.textContent = "Selecione um funcionário...";
+  placeholder.disabled = true;
+  placeholder.selected = true; // mostra como padrão
+  formselect.appendChild(placeholder);
+
   funcionarios.forEach(f => {
     const option = document.createElement("option");
-    option.value = f.nome;
-    datalist.appendChild(option);
+    option.textContent = f.nome;
+    formselect.appendChild(option); 
   });
 
   // Configura Flatpickr
@@ -28,12 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
     avaliacoes.forEach((a, index) => {
       const linha = document.createElement("tr");
       linha.innerHTML = `
-        <td>${a.funcionario}</td>
-        <td>${a.meta}</td>
-        <td>${a.nota}</td>
-        <td>${a.feedback}</td>
-        <td>${a.data}</td>
-        <td class="divBtn-remover"><button class="btn-remover" data-index="${index}">🗑️</button></td>
+        <td style = "border-bottom: 1px solid #000;">${a.funcionario}</td>
+        <td style = "border-bottom: 1px solid #000;">${a.meta}</td>
+        <td style = "border-bottom: 1px solid #000;">${a.nota}</td>
+        <td style=" border-bottom: 1px solid #000; word-wrap: break-word; max-width: 300px;">${a.feedback}</td>
+        <td style = "border-bottom: 1px solid #000;">${a.data}</td>
+        <td class="divBtn-remover" ><button class="btn-remover" data-index="${index}">🗑️</button></td>
       `;
       tabela.appendChild(linha);
     });
@@ -45,10 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const funcionario = document.querySelector("#funcionario").value.trim();
+    const funcionario = document.querySelector("#lista-funcionarios").value.trim();
     const meta = document.querySelector("#meta").value.trim();
     const nota = document.querySelector("#nota").value.trim();
-    const feedback = document.querySelector("#feedback").value.trim();
+    const feedback = document.querySelector("#floatingTextarea2").value.trim();
     const data = document.querySelector("#data").value.trim();
 
     if (!funcionario || !meta || !nota || !feedback || !data) {

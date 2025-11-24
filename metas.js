@@ -1,76 +1,130 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     const form = document.querySelector(".formMetas");
     const tabela = document.querySelector("#table tbody");
 
     let metas = JSON.parse(localStorage.getItem("metas")) || [];
 
+
+    function aplicarCorStatus(select) {
+        if (select.value === "true") {
+            select.style.color = "green";
+        } else {
+            select.style.color = "red";
+        }
+    }
+
+
     function atualizarTabela() {
         tabela.innerHTML = "";
-            metas.forEach((m, index) => {
+
+        metas.forEach((m, index) => {
             const linha = document.createElement("tr");
+
             linha.innerHTML = `
-                <td>${m.funcionário}</td>
-                <td>${m.meta}</td>
-                <td>${m.prazo}</td>
-                <td class="divBtn-remover">
+                <td style="border-bottom:1px solid #000;">${m.funcionario}</td>
+                <td style="border-bottom:1px solid #000;">${m.meta}</td>
+                <td style="border-bottom:1px solid #000;">${m.prazo}</td>
+                <td style="border-bottom:1px solid #000;">
+                    <select class="select-status" data-index="${index}">
+                        <option value="false" ${m.concluida === false ? "selected" : ""} style="color:red" >Não concluída</option>
+                        <option value="true" ${m.concluida === true ? "selected" : ""} style="color:green" >Concluída</option>
+                    </select>
+                </td>
+                <td class="divBtn-remover" style="border-bottom:1px solid #000;">
                     <button class="btn-remover" data-index="${index}">🗑️</button>
                 </td>
             `;
+
+
             tabela.appendChild(linha);
+
+            // Aplicar cor ao select recém-criado
+            const selectStatus = linha.querySelector(".select-status");
+            aplicarCorStatus(selectStatus);
+
         });
     }
 
     atualizarTabela();
 
+    // ➤ SALVAR NOVA META
     form.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        const funcionário = document.querySelector("#funcionário").value.trim();
+        const funcionario = document.querySelector("#lista-funcionarios").value.trim();
         const meta = document.querySelector("#meta").value.trim();
         const prazo = document.querySelector("#prazo").value.trim();
 
-        if(!funcionário || !meta || !prazo) {
+        if (!funcionario || !meta || !prazo) {
             alert("Preencha todos os campos antes de adicionar!");
             return;
         }
 
-        metas.push({ funcionário, meta, prazo });
+        metas.push({
+            funcionario,
+            meta,
+            prazo,
+            concluida: false  // 👈 inicia como NÃO concluída
+        });
 
         localStorage.setItem("metas", JSON.stringify(metas));
 
         atualizarTabela();
-
         form.reset();
     });
 
+    // ➤ REMOVER META
     tabela.addEventListener("click", (event) => {
-        if(event.target.classList.contains("btn-remover")) {
-            const index = event.target.getAttribute("data-index");
+        if (event.target.classList.contains("btn-remover")) {
+            const index = event.target.dataset.index;
             metas.splice(index, 1);
             localStorage.setItem("metas", JSON.stringify(metas));
             atualizarTabela();
         }
+        
     });
 
+    // ➤ ALTERAR STATUS (CONCLUÍDA / NÃO CONCLUÍDA)
+    tabela.addEventListener("change", (event) => {
+        if (event.target.classList.contains("select-status")) {
+            const index = event.target.dataset.index;
 
-    const datalist = document.querySelector("#lista-funcionarios");
+            // Converte a string ("true" ou "false") para o booleano correto
+            metas[index].concluida = event.target.value === "true";
+
+            localStorage.setItem("metas", JSON.stringify(metas));
+
+            // CHAMA A FUNÇÃO DE COR APÓS MUDAR O VALOR
+            aplicarCorStatus(event.target);
+        }
+    });
+
+    // ➤ POPULAR SELECT DE FUNCIONÁRIOS
+    const formselect = document.querySelector("#lista-funcionarios");
     const funcionarios = JSON.parse(localStorage.getItem("funcionarios")) || [];
+    const placeholder = document.createElement("option");
 
-    datalist.innerHTML = "";
+    formselect.innerHTML = "";
+
+    placeholder.textContent = "Selecione um funcionário...";
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    formselect.appendChild(placeholder);
 
     funcionarios.forEach(f => {
         const option = document.createElement("option");
         option.value = f.nome;
-        datalist.appendChild(option);
-
+        option.textContent = f.nome;
+        formselect.appendChild(option);
     });
+
 });
 
-    flatpickr("#prazo", {
-      mode: "range",
-      dateFormat: "d/m/Y",
-      minDate: "today",
-      locale: "pt"
-    });
+flatpickr(
+    "#prazo",{
+     mode: "range",
+     dateFormat: "d/m/Y",
+     minDate: "today",
+     locale: "pt" 
+});

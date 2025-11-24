@@ -6,79 +6,81 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="Assets/favicon-32x32.png">
   <title>Perfomx</title>
-
   <!-- Flatpickr (para escolher datas) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <!-- Bootstrap (para estilização) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<body>
-  <header>
-    <img id="logo" src="Assets/Screenshot_8-removebg-preview.png" alt="Logo-perfomx">
+  <body style="background-color: #f2f2f2;">
+    <header>
+      <img id="logo" src="Assets/Screenshot_8-removebg-preview.png" alt="Logo-perfomx">
 
-    <ul class="menu-nav">
-      <a href="Index.html">Dashboard</a>
-      <a href="Funcionários.html">Funcionários</a>
-      <a href="Metas.html">Metas</a>
-      <a href="Avaliações.html" style="color: #fff;">Avaliações</a>
-    </ul>
-  </header>
+      <ul class="menu-nav">
+        <a href="Index.html">Dashboard</a>
+        <a href="Funcionários.html">Funcionários</a>
+        <a href="Metas.html">Metas</a>
+        <a href="Avaliações.html" style="color: #fff;">Avaliações</a>
+      </ul>
+    </header>
 
-  <main class="main">
-    <div class="title">
-      <h1>Avaliações de Performance</h1>
-    </div>
-
-    <div class="MainCard">
-      <h2 id="sub-tittle">Registrar Avaliação</h2>
-
-                                <!-- Adicionar tom select no input de funcionarios linkando com a pagina de funcionarios para que não seja necessaario digitar o nome do funcionário-->
-                                <!-- Fazer com que quando o input do nome do funcionáro seja selecionado os dados do input de meta seja preenchido automaticamente-->
-                                <!-- Ajustar o input de notas para que exiba uma mensagem de erro caso o valor seja inválido-->
-                                <!-- Ajustar e estilizar o input de feedbacks (comentários)-->
-    
-
-      <form class="formAvaliacoes">
-
-        <label class="inputDescription" for="funcionario">Funcionário</label>
-        <input list="lista-funcionarios" id="funcionario" name="funcionario" placeholder="Selecione ou digite o nome..." required>
-        <datalist id="lista-funcionarios"></datalist>
-
-        <label class="inputDescription" for="meta">Meta Avaliada</label>
-        <input type="text" id="meta" name="meta" placeholder="Descreva a meta..." required>
-
-        <label class="inputDescription" for="nota">Nota (0 a 10)</label>
-        <input type="number" id="nota" name="nota" min="0" max="10" required>
-
-        <label class="inputDescription" for="feedback">Comentário</label>
-        <textarea id="feedback" name="feedback" placeholder="Escreva um breve feedback..." required></textarea>
-
-        <label class="inputDescription" for="data">Data da Avaliação</label>
-        <input type="text" id="data" name="data" placeholder="Selecione a data..." required>
-
-        <button id="btn-Cadastro" type="submit">
-          <h3>Salvar Avaliação</h3>
-        </button>
-      </form>
-
-      <div class="lineDivision"></div>
-
-      <div class="tableDados">
-        <table id="table">
-          <thead>
-            <tr>
-              <th>Funcionário</th>
-              <th>Meta</th>
-              <th>Nota</th>
-              <th>Feedback</th>
-              <th>Data</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+    <main class="main">
+      <div class="title">
+        <h1>Avaliações de Performance</h1>
       </div>
-    </div>
-  </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="avaliacoes.js"></script>
-</body>
+      <div class="MainCard">
+        <h2 id="sub-tittle">Registrar Avaliação</h2>
+                                  <!-- Ajustar o input de notas para que exiba uma mensagem de erro caso o valor seja inválido-->
+
+        <form class="formAvaliacoes">
+
+          <label class="inputDescription" for="Funcionários">Funcionário</label>
+          <select class="form-select" id="lista-funcionarios" aria-label="Default select example" style="font-size: 20px;">
+            <option selected>Selecione um funcionário</option>
+
+          </select>
+
+          <label class="inputDescription" for="meta">Meta Avaliada</label>
+          <input type="text" id="meta" name="meta" placeholder="Descreva a meta..." required>
+
+          <label class="inputDescription" for="nota">Nota (0 a 5)</label>
+          <input type="number" id="nota" name="nota" min="0" max="5" required>
+          
+          <label class="inputDescription" for="feedback">Feedback</label>
+          <div class="form-floating" style="width: 100%;">
+          <textarea class="form-control" placeholder="Leave a comment here" maxlength="70" id="floatingTextarea2" style="height: 100px; width: 100%; font-size: 20px; "></textarea>
+          <label for="floatingTextarea2">comentários</label>  
+          </div>
+
+          <label class="inputDescription" for="data">Data da Avaliação</label>
+          <input type="text" id="data" name="data" placeholder="Selecione a data..." required>
+
+          <button id="btn-Cadastro" type="submit">
+            <h3>Salvar Avaliação</h3>
+          </button>
+        </form>
+
+        <div class="lineDivision"></div>
+
+        <div class="tableDados">
+          <table id="table">
+            <thead>
+              <tr>
+                <th id="dados">Funcionário</th>
+                <th id="dados">Meta</th>
+                <th id="dados">Nota</th>
+                <th id="dados">Feedback</th>
+                <th id="dados">Data</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="avaliacoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
 </html>

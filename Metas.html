@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="Assets/favicon-32x32.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
     <title>Perfomx</title>
 </head>
-<body>
+<body style="background-color: #f2f2f2;">
     
     <header>
         <img id="logo" src="Assets/Screenshot_8-removebg-preview.png" alt="Logo-perfomx">
@@ -32,12 +33,11 @@
 
             <h2 id="sub-tittle">Adicionar meta</h2>
 
-                                <!-- Adicionar tom select no input de funcionarios linkando com a pagina de funcionarios para que não seja necessaario digitar o nome do funcionário-->
-
             <form class="formMetas">
-                <label class="inputDescription" for="Funcionário">Funcionário</label>
-                <input list="lista-funcionarios" id="funcionário" name="funcionário" placeholder="Nome do funcionário..." required>
-                <datalist id="lista-funcionarios"></datalist>
+                <label class="inputDescription" for="Funcionários">Funcionário</label>
+                <select class="form-select" id="lista-funcionarios" aria-label="Default select example" style="font-size: 20px;" >
+                
+                </select>
                 
                 <div class="inputRow">
 
@@ -60,13 +60,15 @@
 
             <div class="lineDivision"></div>
 
-            <div class="tableDados">
+            <div class="tableDados" >
                 <table id="table">
                     <thead>
                     <tr>
-                        <th>Funcionário</th>
-                        <th>Meta</th>
-                        <th>Prazo</th>
+                        <th id="dados">Funcionário</th>
+                        <th id="dados">Meta</th>
+                        <th id="dados">Prazo</th>
+                        <th id="dados">Status</th>
+                        <th id="dados">Ações</th>
                     </tr>
                     </thead>
                     <tbody>
