@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="Assets/favicon-32x32.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Perfomx</title>
 </head>
 <body>
@@ -13,11 +14,39 @@
         <img id="logo" src="Assets/Screenshot_8-removebg-preview.png" alt="Logo-perfomx">
 
         <ul class="menu-nav">
-            <a href="Index.html">Dashboard</a>
+            <a href="index.html">Dashboard</a>
             <a href="Funcionários.html" style="color: #fff;">Funcionários</a>
             <a href="Metas.html">Metas</a>
             <a href="Avaliações.html">Avaliações</a>
         </ul>
+        
+        <div class="menu-toggle navbar" id="menu-toggle" style="padding: 0; border: none;">
+                <button class="navbar-toggler" style="border: none; background-color: #fff;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style="width: 20px; height: 26px;"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" style="background-color: #f2f2f2;" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img id="logo" src="Assets/Screenshot_11-removebg-preview.png" alt="Logo-perfomx"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link-Perfomx" href="index.html">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link-Perfomx active" aria-current="page" href="Funcionários.html">Funcionários</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link-Perfomx" href="Metas.html">Metas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link-Perfomx" href="Avaliações.html">Avaliações</a>
+                            </li>
+                    </div>
+                </div>
+            </div>
     </header>
 
     <main class="main">
@@ -64,6 +93,7 @@
         </div> 
 
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="funcionários.js"></script>
 </body>
 </html>

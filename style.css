@@ -42,6 +42,10 @@ header{
     width: 100%;
 }
 
+#menu-toggle{
+    display: none;
+}
+
 #logo{
     width: 315px;
     height: 90px;
@@ -162,6 +166,42 @@ header{
     align-items: center;
     flex: 1 0 0;
     align-self: stretch;
+}
+
+.card-funcionarioDoMes{
+    display: flex;
+        
+    padding: 20px 24px 38px 24px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.63);
+    background: #FFF;
+    box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+#h2-funcionarioDoMes{
+    color: #116D14;
+    font-family: Inter;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#funcionario-destaque{
+    font-size: 48px;
+    color: #116D14;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background-color: #D9D9D9;
+    border-radius: 8px;
+    padding: 15px;
 }
 
 .card h4{
@@ -570,4 +610,78 @@ td{
     font-size: 20px;
     margin: 0;
     padding: 0;
+}
+
+@media screen and (max-width: 980px) {
+    body{
+        
+    }
+
+    header{
+        height: 60px;
+    }
+
+    .title{
+        padding: 0;
+    }
+
+    .title h1{
+        font-size: 32px;
+    }
+
+    .menu-nav{
+        display: none;
+    }
+    
+    #logo {
+        width: 115px;
+        height: 30px;
+    }
+
+    .main{
+        padding: 0 20px;
+    }
+
+    #dados{
+        font-size: 24px;
+        padding: 0 8px;
+    }
+
+    td{
+        font-size: 18px;
+        padding: 0 8px;
+    }
+
+    #menu-toggle{
+        display: block;
+    }
+
+    .menu-navBar-toggle{
+        display: flex;
+        flex-direction: column;
+        width: 1002px;
+        height: 44px;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nav-item{
+        border-radius: 8px;
+        margin-bottom: 8px;
+        padding: 10px;
+        background-color: #FFF;
+        text-align: center;
+    }
+
+    .nav-item:hover{
+        background-color: #D9D9D9;
+    }
+
+    .nav-link-Perfomx{
+        color: var(--verde-bg);
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 700;
+    }
 }
