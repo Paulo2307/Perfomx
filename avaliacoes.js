@@ -86,9 +86,29 @@ document.addEventListener("DOMContentLoaded", () => {
     avaliacoes.push({ funcionario, meta, nota, feedback, data });
     localStorage.setItem("avaliacoes", JSON.stringify(avaliacoes));
 
+    if (nota < 0 || nota > 5) {
+      alert("A nota deve estar entre 0 e 5!");
+      return;
+    }
+
     atualizarTabela();
     form.reset();
   });
+
+  const inputNota = document.querySelector("#nota");
+
+  inputNota.addEventListener("input", () => {
+    let valor = parseFloat(inputNota.value);
+
+    if (valor > 5) {
+      inputNota.value = 5;
+    }
+
+    if (valor < 0) {
+      inputNota.value = 0;
+    }
+  });
+
 
   // Remove avaliação
   tabela.addEventListener("click", (event) => {
