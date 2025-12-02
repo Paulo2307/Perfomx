@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputFuncionario = document.querySelector("#lista-funcionarios");
   const inputMeta = document.querySelector("#meta");
 
-  // Carrega funcionários para o select
 
   const funcionarios = JSON.parse(localStorage.getItem("funcionarios")) || [];
   const metas = JSON.parse(localStorage.getItem("metas")) || [];
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   placeholder.textContent = "Selecione um funcionário...";
   placeholder.disabled = true;
-  placeholder.selected = true; // mostra como padrão
+  placeholder.selected = true;
   formselect.appendChild(placeholder);
 
   funcionarios.forEach(f => {
@@ -39,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
     formselect.appendChild(option); 
   });
 
-  // Configura Flatpickr
   flatpickr("#data", {
     mode: "range",
     dateFormat: "d/m/Y",
@@ -47,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     minDate: "today"
   });
 
-  // Carrega avaliações existentes
   let avaliacoes = JSON.parse(localStorage.getItem("avaliacoes")) || [];
 
   function atualizarTabela() {

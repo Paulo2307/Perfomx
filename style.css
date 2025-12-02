@@ -98,7 +98,16 @@ header{
     padding: 0 102px;
 }
 
-.container{
+.container-dashboard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    align-self: stretch;
+}
+
+.container-cards{
     display: flex;
     height: 180px;
     padding: 0 24px;
@@ -106,9 +115,10 @@ header{
     align-items: flex-start;
     gap: 48px;
     align-self: stretch;
+    margin: 0 ;
 }
 
-.card{
+.card-perfomx{
     display: flex;
 
     padding: 20px 24px 38px 24px;
@@ -123,7 +133,7 @@ header{
     box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
-.card h2{
+.card-perfomx h2{
     color: #116D14;
     font-family: Inter;
     font-size: 34px;
@@ -132,7 +142,7 @@ header{
     line-height: normal;
 }
 
-.card h3{
+.card-perfomx h3{
     color: #116D14;
     font-family: Inter;
     font-size: 64px;
@@ -213,7 +223,7 @@ header{
     line-height: normal;
 }
 
-.card h5{
+.card-perfomx h5{
     color: #116D14;
     font-family: Inter;
     font-size: 58px;
@@ -612,10 +622,12 @@ td{
     padding: 0;
 }
 
+.table-responsive {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
 @media screen and (max-width: 980px) {
-    body{
-        
-    }
 
     header{
         height: 60px;
@@ -639,17 +651,18 @@ td{
     }
 
     .main{
-        padding: 0 20px;
+        padding: 20px;
+        min-height: max-content;
     }
 
     #dados{
         font-size: 24px;
-        padding: 0 8px;
+        padding: 0 3px;
     }
 
     td{
         font-size: 18px;
-        padding: 0 8px;
+        padding: 5 8px;
     }
 
     #menu-toggle{
@@ -684,4 +697,29 @@ td{
         font-size: 20px;
         font-weight: 700;
     }
+
+    #sub-tittle{
+        font-size: 28px;
+    }
+
+    #btn-Cadastro,#btn-Adicionar{
+        padding: 10px;
+    }
+
+    .container-dashboard{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .container-cards{
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+    }
+
+    #h2-funcionarioDoMes, #funcionario-destaque{
+        font-size: 20px;
+    }
+
 }

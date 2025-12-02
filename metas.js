@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             tabela.appendChild(linha);
 
-            // Aplicar cor ao select recém-criado
             const selectStatus = linha.querySelector(".select-status");
             aplicarCorStatus(selectStatus);
 
@@ -74,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         form.reset();
     });
 
-    // ➤ REMOVER META
+    // REMOVER META
     tabela.addEventListener("click", (event) => {
         if (event.target.classList.contains("btn-remover")) {
             const index = event.target.dataset.index;
@@ -85,22 +84,20 @@ document.addEventListener("DOMContentLoaded", () => {
         
     });
 
-    // ➤ ALTERAR STATUS (CONCLUÍDA / NÃO CONCLUÍDA)
+    //  ALTERAR STATUS (CONCLUÍDA / NÃO CONCLUÍDA)
     tabela.addEventListener("change", (event) => {
         if (event.target.classList.contains("select-status")) {
             const index = event.target.dataset.index;
 
-            // Converte a string ("true" ou "false") para o booleano correto
             metas[index].concluida = event.target.value === "true";
 
             localStorage.setItem("metas", JSON.stringify(metas));
 
-            // CHAMA A FUNÇÃO DE COR APÓS MUDAR O VALOR
             aplicarCorStatus(event.target);
         }
     });
 
-    // ➤ POPULAR SELECT DE FUNCIONÁRIOS
+    // SELECT DE FUNCIONÁRIOS
     const formselect = document.querySelector("#lista-funcionarios");
     const funcionarios = JSON.parse(localStorage.getItem("funcionarios")) || [];
     const placeholder = document.createElement("option");
